@@ -1,0 +1,6 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - chmod 0755 ./static/build.sh
+      - /bin/bash -x ./static/build.sh ${StackName} ${StaticAssetsBucket}

@@ -197,6 +197,7 @@ Resources:
   BuildAndCopyStaticContent:
     Type: AWS::CodeBuild::Project
     Properties:
+      Description: !Sub ${AWS::StackName}
       TimeoutInMinutes: 5
       Artifacts:
         Type: CODEPIPELINE

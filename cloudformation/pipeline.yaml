@@ -300,6 +300,7 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
+        PriceClass: PriceClass_100
         Aliases:
           - !Sub ${WebsiteName}.${DomainName}
         DefaultRootObject: index.html
@@ -308,8 +309,8 @@ Resources:
             Id: S3-private-bucket
             S3OriginConfig:
               OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginIdentity}
-        Enabled: 'true'
-        Comment: Some comment
+        Enabled: true
+        Comment: !Sub ${WebsiteName}.${DomainName}
         DefaultCacheBehavior:
           AllowedMethods:
             - GET
